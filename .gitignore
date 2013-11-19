@@ -1,4 +1,8 @@
+# OSX detritus
 .DS_Store
+
+# CBC Data Directory
+data
 
 # vagrant
 .vagrant
