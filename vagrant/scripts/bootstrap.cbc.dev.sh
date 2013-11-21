@@ -14,3 +14,6 @@ rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
 rpm -K rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
 rpm -i rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
 sudo yum -y install git-gui
+
+# Overwrite default httpd.conf with our custom one.
+sudo cp /vagrant/conf/httpd.conf /etc/httpd/conf
