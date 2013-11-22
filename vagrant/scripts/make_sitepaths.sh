@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+mkdir -p /cbc/content/sites/cbc.ca/docs/g/i
+mkdir -p /cbc/content/sites/cbc.ca/docs/g/e
 mkdir -p /cbc/content/sites/cbc.ca/docs/i/tests
 mkdir -p /cbc/content/sites/cbc.ca/docs/i/o/globalnav/v10/css
 mkdir -p /cbc/content/sites/cbc.ca/docs/i/o/globalnav/v10/gfx
