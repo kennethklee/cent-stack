@@ -14,7 +14,3 @@ mkdir -p /cbc/content/sites/cbc.ca/docs/sports/trackandfield/headlines
 mkdir -p /cbc/content/sites/cbc.ca/docs/sports/curling/headlines
 mkdir -p /cbc/content/sites/cbc.ca/docs/sports/skiing/headlines
 mkdir -p /cbc/content/sites/cbc.ca/docs/sports/photos
-chown -R webmaster /cbc
-sudo chcon -vR --type=httpd_sys_content_t /cbc
-rm -rf /var/www/html
-ln -s /cbc/content/sites/cbc.ca/docs /var/www/html

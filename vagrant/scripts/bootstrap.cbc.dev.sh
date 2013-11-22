@@ -19,6 +19,9 @@ sudo yum -y install git-gui
 # Overwrite default httpd.conf with our custom one.
 sudo cp /vagrant/conf/httpd.conf /etc/httpd/conf
 
+# System config scripts (users, paths, installing from svn, etc).
+sh /vagrant/scripts/system_config.sh
+
 # run custom install script
 if [ -f /vagrant/scripts/custom.sh ]; then
   sh /vagrant/scripts/custom.sh
