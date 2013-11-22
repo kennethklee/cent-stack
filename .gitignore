@@ -4,6 +4,10 @@
 # CBC Data Directory
 data
 
+# Don't check SVN into git. Please.
+svn
+.svn
+
 # vagrant
 .vagrant
 .*.swp
