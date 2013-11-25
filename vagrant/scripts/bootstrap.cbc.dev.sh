@@ -9,6 +9,10 @@ sudo yum -y install subversion
 sudo yum -y install ant
 sudo yum -y install vim-X11 vim-common vim-enhanced vim-minimal
 
+# Install varnish
+rpm --nosignature -i http://repo.varnish-cache.org/redhat/varnish-3.0/el5/noarch/varnish-release/varnish-release-3.0-1.el5.centos.noarch.rpm
+sudo yum -y install varnish
+
 # Install git (cf https://gist.github.com/eddarmitage/2001099)
 wget --quiet http://apt.sw.be/redhat/el5/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
 rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
