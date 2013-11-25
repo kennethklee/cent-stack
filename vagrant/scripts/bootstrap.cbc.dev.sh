@@ -26,6 +26,7 @@ sudo yum -y install varnish
 
 # Overwrite default httpd.conf with our custom one.
 sudo cp /vagrant/conf/httpd.conf /etc/httpd/conf
+sudo cp /vagrant/conf/default.vcl /etc/varnish
 
 # run custom install script
 if [ -f /vagrant/scripts/custom.sh ]; then
