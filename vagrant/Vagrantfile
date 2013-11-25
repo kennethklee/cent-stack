@@ -21,7 +21,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #####
 
   config.vm.provision :shell, :path => "scripts/bootstrap.cbc.dev.sh"
-  config.vm.network :forwarded_port, host: 8888, guest: 80
+
+  config.vm.network :forwarded_port, host: 8888, guest: 80	# Apache
+  config.vm.network :forwarded_port, host: 8887, guest: 6081	# Varnish
 
 #####
 # CBC Custom Config END
