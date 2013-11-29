@@ -10,11 +10,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "centos-dev"
+  config.vm.box = "centos6-dev"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://tag1consulting.com/files/centos-5.9-x86-64-minimal.box"
+  config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v0.1.0/centos64-x86_64-20131030.box"
 
   config.vm.network :forwarded_port, host: 8888, guest: 80	# Apache
   config.vm.network :forwarded_port, host: 8887, guest: 6081	# Varnish
