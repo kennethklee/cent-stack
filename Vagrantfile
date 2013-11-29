@@ -20,10 +20,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 # CBC Custom Config START
 #####
 
-  config.vm.provision :shell, :path => "bin/prepare"
-
   config.vm.network :forwarded_port, host: 8888, guest: 80	# Apache
   config.vm.network :forwarded_port, host: 8887, guest: 6081	# Varnish
+
+  config.vm.provision :shell, :inline => <<-'EOSRC'
+(
+  date
+
+  mkdir -p /tmp/log
+
+  yum update -y
+  yum upgrade -y
+
+  /vagrant/stack/prepare
+
+) 2>&1 | tee /tmp/log/provision.log
+EOSRC
 
 #####
 # CBC Custom Config END
