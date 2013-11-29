@@ -1,0 +1,7 @@
+yum-priorities
+httpd
+postgresql84-server.x86_64
+php.x86_64
+java-1.6.0-openjdk
+subversion
+ant

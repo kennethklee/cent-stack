@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+source $(dirname $0)/helpers.sh
+LOG=/tmp/log/$(basename $0).log
+mkdir -p /tmp/log
+

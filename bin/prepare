@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+source $(dirname $0)/helpers.sh
+LOG=/tmp/log/$(basename $0).log
+mkdir -p /tmp/log
+
+(
+    display Starting build at $(date)
+
+    display Update system
+    (
+        yum -y update
+        yum -y upgrade
+    ) 2>&1 | indent
+
+    display Install yum packages
+    (
+        xargs yum -y install < $(dirname $0)/packages.txt
+    ) 2>&1 | indent
+
+    display Install git (cf https://gist.github.com/eddarmitage/2001099)
+    (
+        wget --quiet http://apt.sw.be/redhat/el5/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
+        rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+        rpm -K rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
+        rpm -i rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
+        sudo yum -y install git-gui
+    ) 2>&1 | indent
+
+    display Install varnish
+    (
+        rpm --nosignature -i http://repo.varnish-cache.org/redhat/varnish-3.0/el5/noarch/varnish-release/varnish-release-3.0-1.el5.centos.noarch.rpm
+        sudo yum -y install varnish
+
+        display Overwrite default httpd.conf with our custom one.
+        sudo cp /vagrant/conf/httpd.conf /etc/httpd/conf
+        sudo cp /vagrant/conf/default.vcl /etc/varnish
+    ) 2>&1 | indent
+
+    display run custom install script
+    (
+        if [ -f /vagrant/scripts/custom.sh ]; then
+          sh /vagrant/scripts/custom.sh
+        else
+          echo "No custom script found"
+        fi
+    ) 2>&1 | indent
+
+) 2>&1 | tee $LOG
