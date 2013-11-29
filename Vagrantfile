@@ -16,10 +16,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://tag1consulting.com/files/centos-5.9-x86-64-minimal.box"
 
-#####
-# CBC Custom Config START
-#####
-
   config.vm.network :forwarded_port, host: 8888, guest: 80	# Apache
   config.vm.network :forwarded_port, host: 8887, guest: 6081	# Varnish
 
@@ -36,9 +32,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 ) 2>&1 | tee /tmp/log/provision.log
 EOSRC
 
-#####
-# CBC Custom Config END
-#####
 
 # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
