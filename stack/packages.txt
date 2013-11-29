@@ -5,3 +5,10 @@ php.x86_64
 java-1.6.0-openjdk
 subversion
 ant
+gcc
+gcc-c++
+autoconf
+automake
+make
+curl
+openssl-devel

@@ -18,7 +18,7 @@ mkdir -p /tmp/log
         xargs yum -y install < $(dirname $0)/packages.txt
     ) 2>&1 | indent
 
-    display Install git (cf https://gist.github.com/eddarmitage/2001099)
+    display Install git - cf https://gist.github.com/eddarmitage/2001099
     (
         wget --quiet http://apt.sw.be/redhat/el5/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
         rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
@@ -45,5 +45,7 @@ mkdir -p /tmp/log
           echo "No custom script found"
         fi
     ) 2>&1 | indent
+
+    yum clean all
 
 ) 2>&1 | tee $LOG

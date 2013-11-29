@@ -29,8 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   mkdir -p /tmp/log
 
-  yum update -y
-  yum upgrade -y
+  yum update
 
   /vagrant/stack/prepare
 
