@@ -10,7 +10,6 @@ mkdir -p /tmp/log
     display Update system
     (
         yum -y update
-        yum -y upgrade
     ) 2>&1 | indent
 
     display Install yum packages

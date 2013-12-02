@@ -16,14 +16,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # doesn't already exist on the user's system.
   config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v0.1.0/centos64-x86_64-20131030.box"
 
-  config.vm.network :forwarded_port, host: 8888, guest: 80	# Apache
-  config.vm.network :forwarded_port, host: 8887, guest: 6081	# Varnish
+  config.vm.network :forwarded_port, host: 8080, guest: 80	# Apache
 
   config.vm.provision :shell, :inline => <<-'EOSRC'
+mkdir -p /tmp/log
 (
   date
-
-  mkdir -p /tmp/log
 
   yum update
 
